@@ -1,0 +1,23 @@
+{
+  "name": "yukigo-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "analyse": "tsc && node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^18.0.0",
+    "yukigo": "file:../yukigo",
+    "yukigo-core": "file:../yukigo-core",
+    "yukigo-haskell-parser": "file:../yukigo-haskell-parser"
+  },
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "@types/yargs": "^17.0.33",
+    "typescript": "^5.9.2"
+  }
+}
