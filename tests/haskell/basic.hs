@@ -32,6 +32,9 @@ stringHello = "Hello, Haskell!"
 boolTrue :: Bool
 boolTrue = True
 
+square :: Int -> Int
+square x = x * x
+
 -- 4. Simple function definition
 -- Function to add two integers
 addTwoNumbers :: Int -> Int -> Int

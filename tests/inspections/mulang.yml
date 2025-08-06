@@ -13,7 +13,7 @@ expectations:
     inspection: Not:HasBinding
   - !ruby/hash:ActiveSupport::HashWithIndifferentAccess
     binding: square
-    inspection: Uses:n
+    inspection: Uses:x
   - !ruby/hash:ActiveSupport::HashWithIndifferentAccess
-    binding: squareList2
+    binding: squareList
     inspection: Uses:map

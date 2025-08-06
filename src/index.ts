@@ -52,7 +52,10 @@ const parsers: { [key: string]: YukigoParser } = {
 };
 const parser: YukigoParser = parsers[argv.l];
 const ast = parser.parse(code);
+
 fs.writeFileSync("./ast.json", JSON.stringify(ast, null, 2));
+
+console.log(parser.errors);
 
 const analyzer = new ASTAnalyzer(ast);
 
