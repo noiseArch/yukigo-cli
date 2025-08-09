@@ -10,11 +10,11 @@ data Datita = UnDatita {
 datita :: Datita
 datita = UnDatita {atributito = "Hola", atributote = 42}
 
-datita' :: Datita
-datita' = UnDatita "Hola" 42
+datita2 :: Datita
+datita2 = UnDatita "Hola" 42
 
 numInt :: Number
-numInt = 42
+numInt = 42 -- Comment
 
 -- Floating-point numbers
 numFloat :: Double

@@ -8,7 +8,7 @@ doble :: Int -> Int
 doble num = num * 2
 
 cuadruple :: Int -> Int
-cuadruple = doble . doble
+cuadruple x = doble . doble $ x
 
 multi :: Int -> Int -> Int
 multi x y = x * y

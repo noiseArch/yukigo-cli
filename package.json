@@ -4,7 +4,9 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "analyse": "tsc && node ./dist/index.js"
+    "analyse": "tsc && node ./dist/index.js",
+    "translate": "tsc && node ./dist/translate.js",
+    "test": "tsc && node ./dist/test.js"
   },
   "keywords": [],
   "author": "",

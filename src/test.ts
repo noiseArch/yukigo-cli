@@ -1,0 +1,43 @@
+import yargs from "yargs";
+import fs from "fs";
+import { hideBin } from "yargs/helpers";
+import { YukigoHaskellParser } from "yukigo-haskell-parser";
+import { YukigoParser } from "yukigo-core";
+import { Translator, Tester } from "yukigo";
+import { inspect } from "util";
+
+const argv = yargs(hideBin(process.argv))
+  .usage("Usage: yukigo analyse <filepath> [options]")
+  .demandCommand(1, "You must provide a file to analyse")
+  .help()
+  .parseSync();
+
+const filePath = argv._[0] as string;
+const code = fs.readFileSync(filePath, "utf-8");
+
+const parser: YukigoParser = new YukigoHaskellParser();
+const ast = parser.parse(code);
+fs.writeFileSync("./ast.json", JSON.stringify(ast, null, 2));
+const translator = new Translator(ast);
+const tsCode = translator.translate();
+console.log(tsCode);
+
+const tester = new Tester();
+
+const tests = `
+    describe('Factorial', () => {
+        it('factorial handles 0 correctly', () => {
+            assert.equal(factorial(0), 1);
+        });
+        
+        it('factorial of 3 is 6', () => {
+            assert.equal(factorial(3), 6);
+        });
+        it('doble should not be defined', () => {
+            assert.typeOf(doble, 'undefined');
+        });
+    });
+`;
+
+const testResults = tester.test(tsCode, tests);
+console.log(inspect(testResults, false, null, true));
